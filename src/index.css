@@ -122,30 +122,57 @@
     @apply bg-background text-foreground;
   }
 
-  /* Starry background animation */
+  /* Starry background animation - stronger */
   @keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.8); }
+  }
+
+  @keyframes twinkle-fast {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.6); }
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.2); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); filter: blur(40px); }
+    50% { opacity: 0.7; transform: scale(1.25); filter: blur(60px); }
   }
 
   .star {
     position: absolute;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, transparent 75%);
     border-radius: 50%;
-    animation: twinkle 3s ease-in-out infinite;
+    animation: twinkle 1.8s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 16px rgba(59,130,246,0.5), 0 0 24px rgba(59,130,246,0.2);
+  }
+
+  .star.star--fast {
+    animation: twinkle-fast 1.2s ease-in-out infinite;
+  }
+
+  .star.star--float {
+    animation: twinkle 2s ease-in-out infinite, float 4s ease-in-out infinite;
   }
 
   .star:nth-child(odd) {
-    animation-delay: 1s;
+    animation-delay: 0.3s;
   }
 
   .star:nth-child(3n) {
-    animation-delay: 2s;
+    animation-delay: 0.8s;
+  }
+
+  .star:nth-child(4n) {
+    animation-delay: 1.2s;
+  }
+
+  .star:nth-child(5n) {
+    animation-delay: 1.8s;
   }
 
   .star-field {
@@ -156,5 +183,16 @@
     height: 100%;
     overflow: hidden;
     z-index: 1;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animated-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
   }
 }

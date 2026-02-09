@@ -15,10 +15,10 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-10">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.55, ease: [0.22, 0.61, 0.36, 1] }}
             className="space-y-4"
           >
             <p className="text-sm text-muted-foreground max-w-xs">
@@ -54,10 +54,10 @@ export default function Footer() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            transition={{ duration: 0.55, delay: 0.12, ease: [0.22, 0.61, 0.36, 1] }}
             className="space-y-4"
           >
             <h4 className="font-semibold text-foreground">Navigation</h4>
@@ -76,10 +76,10 @@ export default function Footer() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.24, ease: [0.22, 0.61, 0.36, 1] }}
             className="space-y-4"
           >
             <h4 className="font-semibold text-foreground">Get in touch</h4>

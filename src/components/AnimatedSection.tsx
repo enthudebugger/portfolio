@@ -29,22 +29,23 @@ export function AnimatedSection({
   const isInView = useInView(ref, { once, margin: "-80px" });
 
   const directionOffset = {
-    up: { y: 40 },
-    down: { y: -40 },
-    left: { x: 40 },
-    right: { x: -40 },
+    up: { y: 72 },
+    down: { y: -72 },
+    left: { x: 72 },
+    right: { x: -72 },
   }[direction];
-  const from = { opacity: 0, ...directionOffset };
+  const from = { opacity: 0, scale: 0.96, ...directionOffset };
+  const to = { opacity: 1, x: 0, y: 0, scale: 1 };
 
   return (
     <motion.div
       ref={ref}
       initial={from}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : from}
+      animate={isInView ? to : from}
       transition={{
-        duration: 0.6,
+        duration: 0.85,
         delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.22, 0.61, 0.36, 1],
       }}
       className={className}
     >
@@ -74,10 +75,10 @@ export function StaggerItem({
 export function PageTransition({ children }: { children: ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -12 }}
-      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
     >
       {children}
     </motion.div>
