@@ -1,86 +1,55 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { AnimatedSection, PageTransition } from "@/components/AnimatedSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
-
-type Category = "all" | "web" | "api" | "tools" | "fullstack";
-
-const categories: { id: Category; label: string }[] = [
-  { id: "all", label: "All" },
-  { id: "web", label: "Web" },
-  { id: "api", label: "APIs" },
-  { id: "tools", label: "Tools" },
-  { id: "fullstack", label: "Full-Stack" },
-];
+import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce with cart, checkout, and admin dashboard. Built with React, Node.js, and PostgreSQL.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "fullstack" as Category,
-    featured: true,
+    title: "Bliss Computers – Laptop LCD Screen Store",
+    description:
+      "E-commerce platform for replacement laptop, tablet, and industrial LCD screens. Features product catalog by brand and category, K-12 and government purchasing programs, installation guides, and worldwide shipping from NJ, USA. Built for a 25-year industry leader.",
+    image: "/projects/bliss-computers.png",
+    liveUrl: "https://www.blisscomputers.net/",
   },
   {
-    title: "REST API Gateway",
-    description: "Centralized API gateway with auth, rate limiting, and request logging for microservices.",
-    technologies: ["Node.js", "Redis", "Docker", "OpenAPI"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "api" as Category,
-    featured: true,
+    title: "Furu+ – AI-Powered Financial Coach",
+    description:
+      "Learn trading with a personalized AI financial coach. Covers stocks, options, crypto, forex, futures, and commodities with 24/7 guidance, market screener, education hub, strategy backtesting, and real-time news. Trusted by thousands of learning traders.",
+    image: "/projects/furuplus.png",
+    liveUrl: "https://furuplus.com/",
   },
   {
-    title: "Developer Dashboard",
-    description: "Internal dashboard for monitoring deployments, logs, and team activity. Real-time updates via WebSockets.",
-    technologies: ["React", "TypeScript", "WebSockets", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "web" as Category,
-    featured: false,
+    title: "Yourfolio – AI-Powered Crypto Portfolio Tracker",
+    description:
+      "Transform crypto investing with advanced AI analysis, real-time insights, and personalized strategies that adapt to market conditions. Live AI analysis preview with confidence-scored insights on portfolio allocation, whale activity, and market sentiment.",
+    image: "/projects/yourfolio.png",
+    liveUrl: "https://www.yourfolio.ai/",
   },
   {
-    title: "CLI Tool Suite",
-    description: "Command-line tools for scaffolding, code generation, and local dev workflows.",
-    technologies: ["Node.js", "TypeScript", "Commander", "Inquirer"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "tools" as Category,
-    featured: false,
+    title: "Markprompt – AI for Customer Support",
+    description:
+      "Enterprise-grade AI agents for customer support. Specialized for developer platforms and fintech: autonomously resolve tickets, unify data and intelligence, and ensure reliability under strict compliance (SOC 2, GDPR). Trusted by world-class support teams.",
+    image: "/projects/markprompt.png",
+    liveUrl: "https://www.markprompt.com/",
   },
   {
-    title: "SaaS Admin Panel",
-    description: "Multi-tenant admin panel with roles, audit logs, and integrations. Scalable and secure.",
-    technologies: ["React", "Node.js", "AWS", "PostgreSQL"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "fullstack" as Category,
-    featured: true,
+    title: "$WINS – Sports Investment Token Presales Platform",
+    description:
+      "The ultimate sports investment token presales platform. $WINS powers the future of sports with an upcoming TGE (Token Generation Event) and global exchange access. Dark, cosmic-themed landing with waitlist and token information.",
+    image: "/projects/win-investments.png",
+    liveUrl: "https://app.win.investments/en/wintoken",
   },
   {
-    title: "Documentation Site",
-    description: "Static docs site with search, versioning, and dark mode. Generated from Markdown and OpenAPI.",
-    technologies: ["Next.js", "MDX", "Algolia", "Vercel"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "web" as Category,
-    featured: false,
+    title: "Profitable Futures Trading Bot",
+    description:
+      "Trading interface and automation for BTCUSDT perpetual futures. Candlestick charts with moving averages and Bollinger Bands, volume analysis, and multiple timeframes (1s to 1W) for strategy development and execution.",
+    image: "/projects/binance-futures.png",
+    liveUrl: "https://www.binance.com/en/futures/BTCUSDT",
   },
 ];
 
 export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState<Category>("all");
-
-  const filtered =
-    activeCategory === "all"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
-
   return (
     <PageTransition>
       <div className="pt-24 pb-20 px-6">
@@ -91,117 +60,48 @@ export default function ProjectsPage() {
             </h1>
             <div className="w-20 h-1 bg-gradient-primary rounded-full mx-auto mb-6" />
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A selection of things I&apos;ve built—web apps, APIs, and tools.
+              A selection of products and platforms I&apos;ve worked on.
             </p>
           </AnimatedSection>
 
-          <AnimatedSection className="mb-10">
-            <div className="flex flex-wrap justify-center gap-2">
-              {categories.map((cat) => (
-                <Button
-                  key={cat.id}
-                  variant={activeCategory === cat.id ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={
-                    activeCategory === cat.id
-                      ? "bg-primary text-primary-foreground"
-                      : "border-border/50 text-muted-foreground hover:text-foreground"
-                  }
-                >
-                  {cat.label}
-                </Button>
-              ))}
-            </div>
-          </AnimatedSection>
-
-          <motion.div
-            layout
-            className="grid md:grid-cols-2 gap-8"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: {
-                transition: { staggerChildren: 0.06 },
-              },
-              hidden: {},
-            }}
-          >
-            <AnimatePresence mode="popLayout">
-              {filtered.map((project, index) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <AnimatedSection key={project.title} delay={index * 0.06} direction="up">
                 <motion.div
-                  key={project.title}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.3 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="h-full"
                 >
                   <Card className="h-full bg-gradient-card border-border/50 shadow-shadow-card hover:shadow-shadow-glow transition-all duration-300 group overflow-hidden">
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-2">
-                        <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                          {project.title}
-                        </CardTitle>
-                        {project.featured && (
-                          <Badge variant="secondary" className="text-xs shrink-0">
-                            Featured
-                          </Badge>
-                        )}
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-muted-foreground leading-relaxed text-sm">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            variant="outline"
-                            className="text-xs border-border/50"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="flex gap-3 pt-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1"
-                          onClick={() => window.open(project.liveUrl, "_blank")}
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="flex-1"
-                          onClick={() => window.open(project.githubUrl, "_blank")}
-                        >
-                          <Github className="w-4 h-4 mr-2" />
-                          Code
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
+                    <div className="aspect-video w-full overflow-hidden bg-muted/30">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.06]"
+                      />
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                      {project.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {project.description}
+                    </p>
+                    <Button
+                      className="w-full sm:w-auto"
+                      onClick={() => window.open(project.liveUrl, "_blank")}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Visit site
+                    </Button>
+                  </CardContent>
+                </Card>
                 </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-
-          <AnimatedSection className="text-center mt-12">
-            <Button
-              variant="outline"
-              className="border-primary/20 text-primary hover:bg-primary/10"
-              onClick={() => window.open("https://github.com/enthudebugger", "_blank")}
-            >
-              View All on GitHub
-              <ExternalLink className="w-4 h-4 ml-2" />
-            </Button>
-          </AnimatedSection>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
     </PageTransition>

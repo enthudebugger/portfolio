@@ -55,7 +55,11 @@ export default function ContactPage() {
               const IconComponent = method.icon;
               return (
                 <AnimatedSection key={method.label} delay={index * 0.06} direction="up">
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div
+                    whileHover={{ scale: 1.04, y: -4 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 320, damping: 20 }}
+                  >
                     <Card
                       className={`bg-gradient-card border-border/50 shadow-shadow-card hover:shadow-shadow-glow transition-all duration-300 group cursor-pointer h-full ${
                         method.primary ? "ring-1 ring-primary/20" : ""
