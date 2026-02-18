@@ -1,28 +1,6 @@
-import { motion } from "framer-motion";
 import { AnimatedSection, PageTransition } from "@/components/AnimatedSection";
 import { Card } from "@/components/ui/card";
-import { Briefcase, GraduationCap, Target, Code2 } from "lucide-react";
-
-const experience = [
-  {
-    role: "Senior Software Engineer",
-    company: "Tech Company",
-    period: "2022 – Present",
-    description: "Leading full-stack development, system design, and mentoring. Built scalable services and improved delivery pipelines.",
-  },
-  {
-    role: "Software Engineer",
-    company: "Product Startup",
-    period: "2020 – 2022",
-    description: "Developed web applications and APIs. Introduced testing and CI/CD practices across the team.",
-  },
-  {
-    role: "Junior Developer",
-    company: "Agency",
-    period: "2018 – 2020",
-    description: "Front-end and back-end features for client projects. Learned production debugging and deployment.",
-  },
-];
+import { GraduationCap, Target, Code2 } from "lucide-react";
 
 const values = [
   {
@@ -68,49 +46,24 @@ export default function AboutPage() {
             <Card className="bg-gradient-card border-border/50 p-8 md:p-10 shadow-shadow-card">
               <div className="prose prose-invert prose-lg max-w-none">
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  I&apos;m a software engineer who cares about clean architecture, performance, and
-                  long-term maintainability. I work across full-stack development, AI integration, trading systems, and
-                  cloud infrastructure—turning complex requirements into simple, robust solutions.
+                  I&apos;m a software engineer who cares about{" "}
+                  <span className="text-foreground font-medium">clean architecture</span>,{" "}
+                  <span className="text-foreground font-medium">performance</span>, and long-term maintainability.
+                  I work across full-stack development, AI integration, trading systems, and cloud infrastructure—turning
+                  complex requirements into simple, robust solutions that hold up over time.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  My experience spans full-stack web applications, AI-powered features, trading platforms, and cloud DevOps
-                  practices. I like to automate repetitive work, improve developer experience, and
-                  ship iteratively so we can learn from real usage.
+                  My experience spans full-stack web applications, AI-powered features, trading platforms, and cloud DevOps.
+                  I focus on automating repetitive work, improving developer experience, and shipping iteratively so we
+                  can learn from real usage and adapt quickly—whether that&apos;s better tooling, clearer APIs, or smoother pipelines.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  When I&apos;m not coding, I keep up with the ecosystem, contribute to open source when
-                  I can, and enjoy sharing what I learn with my team and the community.
+                  When I&apos;m not coding, I keep up with the ecosystem, contribute to open source when I can, and
+                  enjoy sharing what I learn with my team and the community—through docs, talks, or pairing sessions.
                 </p>
               </div>
             </Card>
           </AnimatedSection>
-
-          <AnimatedSection className="mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
-              <Briefcase className="w-8 h-8 text-primary" />
-              Experience
-            </h2>
-          </AnimatedSection>
-
-          <div className="space-y-8">
-            {experience.map((job, i) => (
-              <AnimatedSection key={job.role + job.company} delay={i * 0.08} direction="up">
-                <motion.div
-                  whileHover={{ x: 14 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className="relative pl-8 pb-10 border-l-2 border-primary/30 last:pb-0"
-                >
-                  <div className="absolute left-0 top-0 -translate-x-[9px] w-4 h-4 rounded-full bg-primary shadow-glow-primary" />
-                  <div className="flex flex-wrap items-baseline gap-2 mb-2">
-                    <h3 className="text-xl font-semibold text-foreground">{job.role}</h3>
-                    <span className="text-muted-foreground">@ {job.company}</span>
-                  </div>
-                  <p className="text-sm text-primary mb-3">{job.period}</p>
-                  <p className="text-muted-foreground leading-relaxed">{job.description}</p>
-                </motion.div>
-              </AnimatedSection>
-            ))}
-          </div>
 
           <AnimatedSection className="mt-20 mb-8">
             <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
