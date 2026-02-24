@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { AnimatedSection, PageTransition } from "@/components/AnimatedSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Github, Mail } from "lucide-react";
+import { MessageCircle, Linkedin, Github, Mail } from "lucide-react";
 
 const contactMethods = [
   {
@@ -13,10 +13,10 @@ const contactMethods = [
     primary: true,
   },
   {
-    icon: Phone,
-    label: "WhatsApp",
-    value: "+62 813 9558 5026",
-    url: "https://wa.me/6281395585026",
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "Alif Fauzi",
+    url: "https://www.linkedin.com/in/alif-fauzi-929b4a3aa/",
     primary: true,
   },
   {
@@ -29,8 +29,8 @@ const contactMethods = [
   {
     icon: Mail,
     label: "Email",
-    value: "Let's Connect",
-    url: "mailto:hello@example.com",
+    value: "aliffahrurizal@gmail.com",
+    url: "mailto:aliffahrurizal@gmail.com",
     primary: false,
   },
 ];
