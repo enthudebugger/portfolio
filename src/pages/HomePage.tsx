@@ -22,6 +22,7 @@ import {
   Brain,
   TrendingUp,
   Cloud,
+  Smartphone,
 } from "lucide-react";
 
 const highlights = [
@@ -35,6 +36,8 @@ const techStack = [
   "TypeScript",
   "React",
   "Node.js",
+  "Flutter",
+  "React Native",
   "PostgreSQL",
   "Docker",
   "AWS",
@@ -181,7 +184,7 @@ export default function HomePage() {
             transition={{ delay: 0.4, duration: 0.65, ease: [0.22, 0.61, 0.36, 1] }}
             className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            Full-stack development, clean architecture, and robust systems. I build web
+            Full-stack development, clean architecture, and robust systems. I build web and mobile
             applications, APIs, and tools that are maintainable, scalable, and a pleasure to
             use.
           </motion.p>
@@ -355,14 +358,21 @@ export default function HomePage() {
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             {[
               {
                 icon: Code2,
-                title: "Full-Stack Development",
+                title: "Web Development",
                 description:
                   "React, Node.js, TypeScript, and modern tooling. From UI to database and APIs.",
                 tags: ["React", "Node", "TypeScript"],
+              },
+              {
+                icon: Smartphone,
+                title: "Mobile Development",
+                description:
+                  "Building cross-platform mobile apps with performant UI, clean architecture, and reliable API integration.",
+                tags: ["Flutter", "React Native", "Mobile UX"],
               },
               {
                 icon: Brain,

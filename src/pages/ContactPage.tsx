@@ -16,7 +16,7 @@ const contactMethods = [
     icon: Linkedin,
     label: "LinkedIn",
     value: "Alif Fauzi",
-    url: "https://www.linkedin.com/in/alif-fauzi-929b4a3aa/",
+    url: "https://www.linkedin.com/in/alif-fauzi-bb24613b3/",
     primary: true,
   },
   {
