@@ -15,6 +15,64 @@ const values = [
   },
 ];
 
+const experiences = [
+  {
+    icon: Target,
+    role: "Software Engineer",
+    company: "Freelance",
+    employment: "Freelance",
+    period: "Sep 2025 - Present",
+    duration: "7 mos",
+    location: "Bekasi, West Java, Indonesia",
+    workMode: "Remote",
+    skillsSummary: "Web Development, FinTech and +3 skills",
+  },
+  {
+    icon: Code2,
+    role: "Full Stack Engineer",
+    company: "Curalib",
+    employment: "Part-time",
+    period: "Apr 2024 - Jul 2025",
+    duration: "1 yr 4 mos",
+    location: "Bekasi, West Java, Indonesia",
+    workMode: "Hybrid",
+    skillsSummary: "React.js, Python (Programming Language) and +4 skills",
+  },
+  {
+    icon: GraduationCap,
+    role: "Back End Developer",
+    company: "Futurice",
+    employment: "Part-time",
+    period: "Mar 2023 - Nov 2023",
+    duration: "9 mos",
+    location: "Finland",
+    workMode: "Remote",
+    skillsSummary: "Express.js, TypeScript and +4 skills",
+  },
+  {
+    icon: Code2,
+    role: "Mobile Application Developer",
+    company: "CodeLabs Indonesia",
+    employment: "Part-time",
+    period: "Apr 2022 - Oct 2022",
+    duration: "7 mos",
+    location: "Indonesia",
+    workMode: "Hybrid",
+    skillsSummary: "Flutter, React Native and +1 skill",
+  },
+  {
+    icon: GraduationCap,
+    role: "Intern Frontend Developer",
+    company: "Curalib",
+    employment: "Part-time",
+    period: "Aug 2021 - Feb 2022",
+    duration: "7 mos",
+    location: "Indonesia",
+    workMode: "On-site",
+    skillsSummary: "JavaScript and React.js",
+  },
+];
+
 export default function AboutPage() {
   return (
     <PageTransition>
@@ -63,8 +121,55 @@ export default function AboutPage() {
                 </p>
               </div>
             </Card>
+          </AnimatedSection>          
+
+          <AnimatedSection className="mt-20 mb-8">
+            <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
+              <GraduationCap className="w-8 h-8 text-primary" />
+              Experience
+            </h2>
           </AnimatedSection>
 
+          <div className="rounded-xl border border-border/50 bg-gradient-card overflow-hidden">
+            {experiences.map((exp, i) => (
+              <AnimatedSection
+                key={exp.role}
+                delay={i * 0.08}
+                className={i === 0 ? "w-full" : "w-full border-t border-border/30"}
+              >
+                <div className="flex gap-4 p-6 md:p-7">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <exp.icon className="w-5 h-5" />
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">{exp.role}</h3>
+                        <p className="text-sm text-muted-foreground mt-0.5">
+                          {exp.company} &middot; {exp.employment}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                      <span>
+                        {exp.period} &middot; {exp.duration}
+                      </span>
+                      <span>
+                        {exp.location} &middot; {exp.workMode}
+                      </span>
+                    </div>
+
+                    <div className="mt-3 flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                      <Target className="w-4 h-4 text-primary/70 shrink-0" />
+                      <span className="text-foreground/90">{exp.skillsSummary}</span>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
           <AnimatedSection className="mt-20 mb-8">
             <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
               <GraduationCap className="w-8 h-8 text-primary" />

@@ -21,8 +21,7 @@ import {
   Shield,
   Brain,
   TrendingUp,
-  Cloud,
-  Smartphone,
+  Cloud
 } from "lucide-react";
 
 const highlights = [
@@ -36,8 +35,13 @@ const techStack = [
   "TypeScript",
   "React",
   "Node.js",
+  "Python",
+  "FastAPI",
+  "Flask",
   "Flutter",
   "React Native",
+  "Kotlin",
+  "Swift",
   "PostgreSQL",
   "Docker",
   "AWS",
@@ -358,21 +362,14 @@ export default function HomePage() {
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: Code2,
-                title: "Web Development",
+                title: "Full-Stack Development",
                 description:
                   "React, Node.js, TypeScript, and modern tooling. From UI to database and APIs.",
                 tags: ["React", "Node", "TypeScript"],
-              },
-              {
-                icon: Smartphone,
-                title: "Mobile Development",
-                description:
-                  "Building cross-platform mobile apps with performant UI, clean architecture, and reliable API integration.",
-                tags: ["Flutter", "React Native", "Mobile UX"],
               },
               {
                 icon: Brain,
