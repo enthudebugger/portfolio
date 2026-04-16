@@ -13,7 +13,7 @@ const projects = [
     liveUrl: "https://www.blisscomputers.net/",
   },
   {
-    title: "FitAja! - B2B health platform tied to insurance and provider workflows",
+    title: "FitAja - B2B health platform tied to insurance and provider workflows",
     description:
       "Digital health super app that brings together healthcare services in one place, including online doctor consultations, digital prescriptions, medicine delivery, insurance claims, and provider information.",
     image: "/projects/fitaja.png",
