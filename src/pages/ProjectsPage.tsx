@@ -13,6 +13,13 @@ const projects = [
     liveUrl: "https://www.blisscomputers.net/",
   },
   {
+    title: "FitAja - B2B health platform tied to insurance and provider workflows",
+    description:
+      "Digital health super app that brings together healthcare services in one place, including online doctor consultations, digital prescriptions, medicine delivery, insurance claims, and provider information.",
+    image: "/projects/fitaja.png",
+    liveUrl: "https://www.fitaja.id/",
+  },
+  {
     title: "Furu+ – AI-Powered Financial Coach",
     description:
       "Learn trading with a personalized AI financial coach. Covers stocks, options, crypto, forex, futures, and commodities with 24/7 guidance, market screener, education hub, strategy backtesting, and real-time news. Trusted by thousands of learning traders.",
@@ -39,13 +46,6 @@ const projects = [
       "The ultimate sports investment token presales platform. $WINS powers the future of sports with an upcoming TGE (Token Generation Event) and global exchange access. Dark, cosmic-themed landing with waitlist and token information.",
     image: "/projects/win-investments.png",
     liveUrl: "https://app.win.investments/en/wintoken",
-  },
-  {
-    title: "Profitable Futures Trading Bot",
-    description:
-      "Trading interface and automation for BTCUSDT perpetual futures. Candlestick charts with moving averages and Bollinger Bands, volume analysis, and multiple timeframes (1s to 1W) for strategy development and execution.",
-    image: "/projects/binance-futures.png",
-    liveUrl: "https://www.binance.com/en/futures/BTCUSDT",
   },
 ];
 
