@@ -6,13 +6,6 @@ import { MessageCircle, Linkedin, Github, Mail } from "lucide-react";
 
 const contactMethods = [
   {
-    icon: MessageCircle,
-    label: "Telegram",
-    value: "@enthudebugger",
-    url: "https://t.me/enthudebugger",
-    primary: true,
-  },
-  {
     icon: Linkedin,
     label: "LinkedIn",
     value: "Alif Fauzi",
@@ -32,6 +25,13 @@ const contactMethods = [
     value: "aliffahrurizal@gmail.com",
     url: "mailto:aliffahrurizal@gmail.com",
     primary: false,
+  },
+  {
+    icon: MessageCircle,
+    label: "Telegram",
+    value: "@enthudebugger",
+    url: "https://t.me/enthudebugger",
+    primary: true,
   },
 ];
 
